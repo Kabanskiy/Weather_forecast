@@ -7,7 +7,7 @@ def index(request):
     appid = "60925936ffb2aea192fc36034702edba"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
 
-    if (request.method == 'POST')
+    if (request.method == 'POST'):
         form = CityForm(request.POST)
         form.save()
 
@@ -26,5 +26,5 @@ def index(request):
         }
         all_cities.append(city_info)
 
-    context = {'all_info': all_cities}
+    context = {'all_info': all_cities, 'form': form}
     return render(request, 'weather/index.html', context)
