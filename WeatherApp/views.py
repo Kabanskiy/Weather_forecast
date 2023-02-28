@@ -1,10 +1,18 @@
 from django.shortcuts import render
 import requests
 from . models import City
+from .forms import CityForm
 
 def index(request):
     appid = "60925936ffb2aea192fc36034702edba"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
+
+    if (request.method == 'POST')
+        form = CityForm(request.POST)
+        form.save()
+
+    form = CityForm # форма для очистки
+
     cities = City.objects.all()
 
     all_cities = []
